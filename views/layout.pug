@@ -1,11 +1,19 @@
 doctype html
 html
+  block head
   head
-    title= title
+    title Sistema de Acreditación Nacional CACECA
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet' href='/bootstrap/bootstrap.css')
+
   body
+    block scripts
+    script(src ='js/bootstrap.js')
+    script(src='js/jquery.js')
+    script(src ='/javascripts/site.js')
+
     block content
     block foot
-      p some content
+
 
 

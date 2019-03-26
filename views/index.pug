@@ -1,6 +1,15 @@
 extends layout
+block append head
+  link(rel='stylesheet', href='/stylesheets/signin.css')
 
 block content
-  h1= title
-  p Welcome to #{title} Framework
-
+  body(class='text-center')
+      form(method='POST' class='form-signin' action='/')
+        img(src='/images/logo_uabc_4.png' style='display:inline:block')
+        img(src='/images/caceca_3.png' style='display:inline:block')
+        h1(class='h3 mb-3 font-weight-normal') Iniciar Sesion
+        br
+        input(type="text" placeholder='Usuario' class='form-control' name='user' id='usuario')
+        input(type='password' placeholder='Password' class='form-control' name='pass' id='pass')
+        button(id='btnLogin' class='btn btn-lg btn-primary btn-block' type='submit') Continuar
+        p(class='mt-5 mb-3 text-muted')= title
