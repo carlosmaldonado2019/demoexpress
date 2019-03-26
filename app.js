@@ -3,12 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const crypto = require('crypto');
-const mongoose = require('mongoose');
+/*const crypto = require('crypto');
+const mongoose = require('mongoose');*/
 const bodyParser = require('body-parser');
-const multer = require('multer');
+/*const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
-const Grid = require('gridfs-stream');
+const Grid = require('gridfs-stream');*/
 const methodOverride = require('method-override');
 
 //routes
@@ -18,9 +18,9 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 // Create mongo connection
-const mongoURI = 'mongodb://localhost:27017/mongouploads';
+/*const mongoURI = 'mongodb://localhost:27017/caceca';
 const conn = mongoose.createConnection(mongoURI);
-let gfs;
+let gfs;*/
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -52,7 +52,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+/*
 conn.once('open', () => {
   // Init stream
   gfs = Grid(conn.db, mongoose.mongo);
@@ -77,5 +77,5 @@ const storage = new GridFsStorage({
     });
   }
 });
-const upload = multer({ storage });
+const upload = multer({ storage });*/
 module.exports = app;
