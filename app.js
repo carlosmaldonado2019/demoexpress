@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+const uuid = require('uuid/v4');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -14,6 +15,7 @@ const methodOverride = require('method-override');
 //routes
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var homeRouter = require('./routes/home');
 
 var app = express();
 
@@ -31,6 +33,7 @@ app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/bootstrap", express.static(path.join(__dirname, '/node_modules/bootstrap/dist/css')));
 app.use("/js", express.static(path.join(__dirname, '/node_modules/jquery/dist/')));
@@ -38,6 +41,7 @@ app.use("/js", express.static(path.join(__dirname, '/node_modules/bootstrap/dist
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/home', homeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
