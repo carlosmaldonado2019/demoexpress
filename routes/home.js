@@ -13,7 +13,10 @@ MongoClient.connect('mongodb://localhost:27017/caceca', (err, database) => {
 
 router.get('/',(req,res) =>{
     if(session.islogged) {
-        res.render('home',{usuario:session.usuario})
+        res.render('home',{
+            usuario:session.usuario,
+            title:"Sistema de Acreditación Nacional CACECA"
+        })
     }
     else{
         res.send('Acceso no permitido');

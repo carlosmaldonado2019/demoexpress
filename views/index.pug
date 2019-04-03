@@ -1,15 +1,14 @@
 extends layout
 block append head
-  link(rel='stylesheet', href='/stylesheets/signin.css')
-
+  link(rel='stylesheet', href='/css/signin.css')
 block content
-  body(class='text-center')
-      form(method='POST' class='form-signin' action='/')
+  body.text-center
+      form(method='POST' action='/').form-signin
         img(src='/images/logo_uabc_4.png' style='display:inline:block')
         img(src='/images/caceca_3.png' style='display:inline:block')
-        h1(class='h4 mb-2 font-weight-normal') Iniciar Sesión
+        h1.h4.mb-2.font-weight-normal Iniciar Sesión
         br
-        input(type="text" placeholder='Usuario' class='form-control' name='user' id='usuario')
-        input(type='password' placeholder='Password' class='form-control' name='pass' id='pass')
-        button(id='btnLogin' class='btn btn-lg btn-primary btn-block' type='submit') Continuar
-        p(class='mt-4 mb-3 text-muted')= footer
+        input(type="text" placeholder='Usuario'  name='user' id='usuario').form-control
+        input(type='password' placeholder='Password'  name='pass' id='pass').form-control
+        button(id='btnLogin' type='submit').btn.btn-lg.btn-primary.btn-block Continuar
+        p.mt-4.mb-3.text-muted= footer
